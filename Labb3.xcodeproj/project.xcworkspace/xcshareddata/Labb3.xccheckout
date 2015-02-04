@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AC1BF2AC-2D06-48C5-8F1F-5E85872DDC90</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Labb3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AAAEA5FC26DBD1780BD32C222C69EBF8786EDCCE</key>
+		<string>https://github.com/RohiniCarlson/iOS_labb3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Labb3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AAAEA5FC26DBD1780BD32C222C69EBF8786EDCCE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/RohiniCarlson/iOS_labb3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AAAEA5FC26DBD1780BD32C222C69EBF8786EDCCE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AAAEA5FC26DBD1780BD32C222C69EBF8786EDCCE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Labb3</string>
+		</dict>
+	</array>
+</dict>
+</plist>

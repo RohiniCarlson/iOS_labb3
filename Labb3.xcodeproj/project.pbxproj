@@ -14,6 +14,9 @@
 		443015801A800B64002F827D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4430157F1A800B64002F827D /* Images.xcassets */; };
 		443015831A800B64002F827D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443015811A800B64002F827D /* LaunchScreen.xib */; };
 		4430158F1A800B64002F827D /* Labb3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4430158E1A800B64002F827D /* Labb3Tests.m */; };
+		4430159A1A8017C5002F827D /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 443015991A8017C5002F827D /* Task.m */; };
+		446750871A817173001BAE62 /* TaskTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 446750861A817173001BAE62 /* TaskTable.m */; };
+		4467508A1A820179001BAE62 /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 446750891A820179001BAE62 /* TaskDetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		443015881A800B64002F827D /* Labb3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Labb3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4430158D1A800B64002F827D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4430158E1A800B64002F827D /* Labb3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Labb3Tests.m; sourceTree = "<group>"; };
+		443015981A8017C5002F827D /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		443015991A8017C5002F827D /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		446750851A817173001BAE62 /* TaskTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTable.h; sourceTree = "<group>"; };
+		446750861A817173001BAE62 /* TaskTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTable.m; sourceTree = "<group>"; };
+		446750881A820179001BAE62 /* TaskDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetail.h; sourceTree = "<group>"; };
+		446750891A820179001BAE62 /* TaskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +98,12 @@
 				4430157F1A800B64002F827D /* Images.xcassets */,
 				443015811A800B64002F827D /* LaunchScreen.xib */,
 				443015721A800B64002F827D /* Supporting Files */,
+				443015981A8017C5002F827D /* Task.h */,
+				443015991A8017C5002F827D /* Task.m */,
+				446750851A817173001BAE62 /* TaskTable.h */,
+				446750861A817173001BAE62 /* TaskTable.m */,
+				446750881A820179001BAE62 /* TaskDetail.h */,
+				446750891A820179001BAE62 /* TaskDetail.m */,
 			);
 			path = Labb3;
 			sourceTree = "<group>";
@@ -219,9 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4430159A1A8017C5002F827D /* Task.m in Sources */,
+				446750871A817173001BAE62 /* TaskTable.m in Sources */,
 				4430157B1A800B64002F827D /* ViewController.m in Sources */,
 				443015781A800B64002F827D /* AppDelegate.m in Sources */,
 				443015751A800B64002F827D /* main.m in Sources */,
+				4467508A1A820179001BAE62 /* TaskDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +430,7 @@
 				443015941A800B64002F827D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		443015951A800B64002F827D /* Build configuration list for PBXNativeTarget "Labb3Tests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +439,7 @@
 				443015971A800B64002F827D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
