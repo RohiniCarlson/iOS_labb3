@@ -20,7 +20,7 @@
 
 - (NSMutableArray*)tasks {
     if (!_tasks) {
-        _tasks = [@[[[Task alloc]initWithName:@"Dentist appointment" andDate:@"02-02-2015"],[[Task alloc]initWithName:@"Meeting" andDate:@"02-03-2015"],[[Task alloc]initWithName:@"Buy groceries" andDate:@"02-04-2015"]]mutableCopy];
+        _tasks = [@[[[Task alloc]initWithTitle:@"Dentist appointment" andDate:@"02-02-2015"],[[Task alloc]initWithTitle:@"Meeting" andDate:@"02-03-2015"],[[Task alloc]initWithTitle:@"Buy groceries" andDate:@"02-04-2015"]]mutableCopy];
     }
     return _tasks;
 }
@@ -61,12 +61,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.tasks[indexPath.row]taskDate];
-    cell.detailTextLabel.text = [self.tasks[indexPath.row]name];
-    /*if ([self.tasks[indexPath.row]completed]) {
-        cell.image = [UIImage imageNamed:@"taskDone"];
-    }*/
+    cell.textLabel.text = [self.tasks[indexPath.row]description];
+    if ([self.tasks[indexPath.row]taskPriority] == High) {
+        cell.imageView.image = [UIImage imageNamed:@"taskprio"];
+    }
     if ([self.tasks[indexPath.row]completed]) {
+        cell.imageView.image = [UIImage imageNamed:@"taskdone"];
     }
     return cell;
 }
@@ -111,17 +111,12 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //UITableView *tableView;
     NSInteger cellIndex;
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if ([segue.identifier isEqualToString:@"Detail"]){
         TaskDetail *detailView = [segue destinationViewController];
-        
-    //    UITableViewCell *cell = sender;
-        
-        //cellIndex =                     [self.tableView indexPathForCell:cell].row;
         cellIndex =                     indexPath.row;
-        detailView.title = [self.tasks[cellIndex] taskDate];
+        detailView.title = [self.tasks[cellIndex] description];
         detailView.taskIndex = cellIndex;
         detailView.tasks = self.tasks;
     }

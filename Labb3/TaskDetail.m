@@ -11,50 +11,86 @@
 
 @interface TaskDetail ()
 
-@property (weak, nonatomic) IBOutlet UILabel *taskDescription;
+@property (weak, nonatomic) IBOutlet UITextField *dateTask;
 
-@property (weak, nonatomic) IBOutlet UILabel *priorityLevel;
+@property (weak, nonatomic) IBOutlet UITextField *titleTask;
 
-@property (weak, nonatomic) IBOutlet UILabel *taskCompleted;
+@property (weak, nonatomic) IBOutlet UITextView *commentsTask;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *completedTask;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *priorityTask;
+
+@property Task *task;
+
+@property BOOL taskCompletion;
+
+@property priority taskPriority;
 
 @end
 
 @implementation TaskDetail
+
+//@synthesize commentsTask;
 
 NSString *stringValue;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.taskDescription.text = [self.tasks[self.taskIndex] name];
-    self.taskCompleted.text = [self convertToStringBool:([self.tasks[self.taskIndex] completed])];
-    self.priorityLevel.text = [self convertToStringEnum:([self.tasks[self.taskIndex] taskPriority])];
-    
-}
-
--(NSString*)convertToStringBool:(BOOL)completedStatus {
-    
-    return completedStatus ? @"Yes" : @"No";
-}
-
--(NSString*)convertToStringEnum:(priority)whichPriority {
-    
-    NSString *result;
-    
-    switch(whichPriority) {
-        case Low:
-            result = @"Low";
-            break;
-        case Normal:
-            result = @"Normal";
-            break;
-        case High:
-            result = @"High";
-            break;
-        default:
-            result = @"Unknown";
+    self.task = self.tasks[self.taskIndex];
+    self.dateTask.text = [self.task taskDate];
+    [[self.commentsTask layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.commentsTask layer] setBorderWidth:0.5];
+    self.commentsTask.text = [self.task taskComments];
+    self.titleTask.text = [self.task taskTitle];
+    if ([self.task completed]) {
+        [self.completedTask setSelectedSegmentIndex:0];
+    } else {
+        [self.completedTask setSelectedSegmentIndex:1];
     }
-    return result;
+    if ([self.task taskPriority] == High ) {
+        [self.priorityTask setSelectedSegmentIndex:0];
+    } else if ([self.task taskPriority] == Normal ) {
+        [self.priorityTask setSelectedSegmentIndex:1];
+    } else {
+        [self.priorityTask setSelectedSegmentIndex:2];
+    }
+   /* self.taskCompleted.text = [self.task convertToStringBool:([self.task completed])];
+    self.priorityLevel.text = [self.task convertToStringEnum:([self.task taskPriority])];*/
+}
+- (IBAction)onTaskCompletionChanged:(id)sender {
+    if (self.completedTask.selectedSegmentIndex == 0) {
+        self.taskCompletion = YES;
+    } else {
+        self.taskCompletion = NO;
+    }
+}
+
+
+- (IBAction)onTaskPriorityChanged:(id)sender {
+    if (self.priorityTask.selectedSegmentIndex == 0) {
+        self.taskPriority = High;
+    } else if (self.priorityTask.selectedSegmentIndex == 1) {
+        self.taskPriority = Normal;
+    } else {
+        self.taskPriority = Low;
+    }
+}
+
+- (IBAction)doneEditting:(id)sender {
+    
+    [[self.tasks objectAtIndex:self.taskIndex] setTaskDate:self.dateTask.text];
+    
+    [[self.tasks objectAtIndex:self.taskIndex] setTaskTitle:self.titleTask.text];
+    
+    [[self.tasks objectAtIndex:self.taskIndex] setTaskComments:self.commentsTask.text];
+    
+    [[self.tasks objectAtIndex:self.taskIndex] setCompleted:self.taskCompletion];
+    
+    [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.taskPriority];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];    
 }
 
 - (void)didReceiveMemoryWarning {

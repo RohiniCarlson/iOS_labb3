@@ -11,8 +11,9 @@
 @interface Task : NSObject
 
 @property (nonatomic) int taskId;
-@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *taskTitle;
 @property (nonatomic) NSString *taskDate;
+@property (nonatomic) NSString *taskComments;
 @property (nonatomic) BOOL completed;
 typedef enum priority {
 Low, // == 0 (by default)
@@ -21,6 +22,8 @@ High // == 2
 } priority;
 @property (nonatomic) priority taskPriority;
 
--(instancetype)initWithName:(NSString*)name andDate:(NSString*)date;
+-(instancetype)initWithTitle:(NSString*)name andDate:(NSString*)date;
+-(NSString*)convertToStringBool:(BOOL) completedStatus;
+-(NSString*)convertToStringEnum:(priority)whichPriority;
 
 @end
