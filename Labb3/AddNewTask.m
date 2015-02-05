@@ -25,7 +25,7 @@
 
 @property BOOL taskCompletion;
 
-@property priority taskPriority;
+@property priority prio;
 
 @end
 
@@ -33,7 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.completedTask.selectedSegmentIndex = 1;
+    self.priorityTask.selectedSegmentIndex = 1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,19 +52,24 @@
 
 - (IBAction)priorityTaskSegmentedControlPressed:(id)sender {
     if (self.priorityTask.selectedSegmentIndex == 0) {
-        self.taskPriority = High;
+        self.prio = High;
     } else if (self.priorityTask.selectedSegmentIndex == 1) {
-        self.taskPriority = Normal;
+        self.prio = Normal;
     } else {
-        self.taskPriority = Low;
+        self.prio = Low;
     }
 }
 
-
 - (IBAction)saveNewButtonPressed:(id)sender {
-    /*[[self.tasks objectAtIndex:self.taskIndex] setTaskDate:self.dateTask.text];
+    self.task = [[Task alloc] initWithTitle:self.titleTask.text andDate:self.dateTask.text];
+    self.task.taskComments = self.commentsTask.text;
+    self.task.completed = self.taskCompletion;
+    self.task.taskPriority = self.prio;
+    [self.tasks addObject:self.task];
     
-    [[self.tasks objectAtIndex:self.taskIndex] setTaskTitle:self.titleTask.text];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    /*
     
     [[self.tasks objectAtIndex:self.taskIndex] setTaskComments:self.commentsTask.text];
     
