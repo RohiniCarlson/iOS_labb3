@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441367951A83590A00FEDF5A /* AddNewTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 441367941A83590A00FEDF5A /* AddNewTask.m */; };
 		443015751A800B64002F827D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 443015741A800B64002F827D /* main.m */; };
 		443015781A800B64002F827D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 443015771A800B64002F827D /* AppDelegate.m */; };
 		4430157B1A800B64002F827D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4430157A1A800B64002F827D /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		441367931A83590A00FEDF5A /* AddNewTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewTask.h; sourceTree = "<group>"; };
+		441367941A83590A00FEDF5A /* AddNewTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewTask.m; sourceTree = "<group>"; };
 		4430156F1A800B64002F827D /* Labb3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labb3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443015731A800B64002F827D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443015741A800B64002F827D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				446750861A817173001BAE62 /* TaskTable.m */,
 				446750881A820179001BAE62 /* TaskDetail.h */,
 				446750891A820179001BAE62 /* TaskDetail.m */,
+				441367931A83590A00FEDF5A /* AddNewTask.h */,
+				441367941A83590A00FEDF5A /* AddNewTask.m */,
 			);
 			path = Labb3;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4430159A1A8017C5002F827D /* Task.m in Sources */,
+				441367951A83590A00FEDF5A /* AddNewTask.m in Sources */,
 				446750871A817173001BAE62 /* TaskTable.m in Sources */,
 				4430157B1A800B64002F827D /* ViewController.m in Sources */,
 				443015781A800B64002F827D /* AppDelegate.m in Sources */,

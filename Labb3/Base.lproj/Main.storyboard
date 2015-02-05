@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="897" y="350"/>
         </scene>
-        <!--Task Detail-->
+        <!--Update Task-->
         <scene sceneID="O74-pV-Gqy">
             <objects>
-                <viewController id="OLN-si-VLv" customClass="TaskDetail" sceneMemberID="viewController">
+                <viewController title="Update Task" id="OLN-si-VLv" customClass="TaskDetail" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6MS-nE-QXn"/>
                         <viewControllerLayoutGuide type="bottom" id="Itg-ef-6Ea"/>
@@ -125,7 +125,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C8M-B0-lbe">
-                                <rect key="frame" x="110" y="391" width="168" height="29"/>
+                                <rect key="frame" x="110" y="391" width="187" height="29"/>
                                 <segments>
                                     <segment title="High"/>
                                     <segment title="Normal"/>
@@ -137,11 +137,11 @@
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-7B-ulK">
                                 <rect key="frame" x="119" y="437" width="100" height="30"/>
-                                <state key="normal" title="Done Editting">
+                                <state key="normal" title="Save Changes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneEditting:" destination="OLN-si-VLv" eventType="touchUpInside" id="6Ic-ci-GyO"/>
+                                    <action selector="saveChangesButtonPressed:" destination="OLN-si-VLv" eventType="touchUpInside" id="Tit-xS-nsF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -163,7 +163,7 @@
         <!--Add New Task-->
         <scene sceneID="Jbr-ep-DU1">
             <objects>
-                <viewController title="Add New Task" id="Tyw-Ve-axA" sceneMemberID="viewController">
+                <viewController title="Add New Task" id="Tyw-Ve-axA" customClass="AddNewTask" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F90-If-Jck"/>
                         <viewControllerLayoutGuide type="bottom" id="lwO-w4-DYa"/>
@@ -213,6 +213,7 @@
                                     <segment title="No"/>
                                 </segments>
                                 <connections>
+                                    <action selector="completedTaskSegmentedControlPressed:" destination="Tyw-Ve-axA" eventType="valueChanged" id="fBH-dl-sBC"/>
                                     <action selector="onTaskCompletionChanged:" destination="OLN-si-VLv" eventType="valueChanged" id="vC2-Wa-22s"/>
                                 </connections>
                             </segmentedControl>
@@ -223,7 +224,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e35-c0-MuK">
-                                <rect key="frame" x="129" y="341" width="168" height="29"/>
+                                <rect key="frame" x="129" y="341" width="186" height="29"/>
                                 <segments>
                                     <segment title="High"/>
                                     <segment title="Normal"/>
@@ -231,21 +232,37 @@
                                 </segments>
                                 <connections>
                                     <action selector="onTaskPriorityChanged:" destination="OLN-si-VLv" eventType="valueChanged" id="DCC-om-UKw"/>
+                                    <action selector="priorityTaskSegmentedControlPressed:" destination="Tyw-Ve-axA" eventType="valueChanged" id="G6q-ea-1D4"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlb-wo-vi9">
                                 <rect key="frame" x="138" y="387" width="100" height="30"/>
-                                <state key="normal" title="Add">
+                                <state key="normal" title="Save New">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneEditting:" destination="OLN-si-VLv" eventType="touchUpInside" id="gVZ-0F-gOX"/>
+                                    <action selector="saveChangesButtonPressed:" destination="OLN-si-VLv" eventType="touchUpInside" id="5Kh-W1-MR6"/>
+                                    <action selector="saveNewButtonPressed:" destination="Tyw-Ve-axA" eventType="touchUpInside" id="HJ7-qa-aNv"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="UAR-Fb-99r">
+                                <rect key="frame" x="24" y="134" width="285" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="commentsTask" destination="UAR-Fb-99r" id="klD-y4-MFS"/>
+                        <outlet property="completedTask" destination="4rP-ai-EQH" id="XIQ-w9-H8X"/>
+                        <outlet property="dateTask" destination="avD-AQ-IYU" id="CO0-cV-BKE"/>
+                        <outlet property="priorityTask" destination="e35-c0-MuK" id="McX-7z-DgQ"/>
+                        <outlet property="titleTask" destination="Xii-6Y-j7S" id="qvo-3Y-EuA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XR6-Pj-RMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

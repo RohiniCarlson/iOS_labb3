@@ -9,6 +9,7 @@
 #import "TaskTable.h"
 #import "Task.h"
 #import "TaskDetail.h"
+#import "AddNewTask.h"
 
 @interface TaskTable ()
 
@@ -116,9 +117,14 @@
     if ([segue.identifier isEqualToString:@"Detail"]){
         TaskDetail *detailView = [segue destinationViewController];
         cellIndex =                     indexPath.row;
-        detailView.title = [self.tasks[cellIndex] description];
+        //detailView.title = [self.tasks[cellIndex] description];
         detailView.taskIndex = cellIndex;
         detailView.tasks = self.tasks;
+    } else if ([segue.identifier isEqualToString:@"Add"]){
+        AddNewTask *addview = [segue destinationViewController];
+        addview.tasks = self.tasks;
+    } else {
+        NSLog(@"You forgot the segue %@",segue);
     }
 }
 

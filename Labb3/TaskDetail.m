@@ -31,8 +31,6 @@
 
 @implementation TaskDetail
 
-//@synthesize commentsTask;
-
 NSString *stringValue;
 
 - (void)viewDidLoad {
@@ -78,7 +76,7 @@ NSString *stringValue;
     }
 }
 
-- (IBAction)doneEditting:(id)sender {
+- (IBAction)saveChangesButtonPressed:(id)sender {
     
     [[self.tasks objectAtIndex:self.taskIndex] setTaskDate:self.dateTask.text];
     
