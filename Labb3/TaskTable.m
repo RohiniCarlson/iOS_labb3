@@ -70,13 +70,18 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.textLabel.text = [self.tasks[indexPath.row]description];
-        if ([self.tasks[indexPath.row]taskPriority] == High) {
-            cell.imageView.image = [UIImage imageNamed:@"taskprio"];
-        }
         if ([self.tasks[indexPath.row]completed]) {
             cell.imageView.image = [UIImage imageNamed:@"taskdone"];
-        
-    }
+        } else {
+            if ([self.tasks[indexPath.row]taskPriority] == High) {
+                cell.imageView.image = [UIImage imageNamed:@"highprio"];
+            } else if ([self.tasks[indexPath.row]taskPriority] == Low) {
+                cell.imageView.image = [UIImage imageNamed:@"lowprio"];
+            } else {
+                cell.imageView.image = [UIImage imageNamed:@"todo"];
+            }
+        }
+    
     return cell;
 }
 

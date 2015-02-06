@@ -36,7 +36,6 @@
     self.completedTask.selectedSegmentIndex = 1;
     self.priorityTask.selectedSegmentIndex = 1;
     self.prio = Normal;
-    self.delegate = [UIApplication sharedApplication].delegate;
 }
 
 

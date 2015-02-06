@@ -25,7 +25,7 @@
 
 @property BOOL taskCompletion;
 
-@property priority taskPriority;
+@property priority tskPriority;
 
 @end
 
@@ -54,7 +54,6 @@ NSString *stringValue;
     } else {
         [self.priorityTask setSelectedSegmentIndex:2];
     }
-    self.delegate = [UIApplication sharedApplication].delegate;
 }
 
 
@@ -69,11 +68,11 @@ NSString *stringValue;
 
 - (IBAction)onTaskPriorityChanged:(id)sender {
     if (self.priorityTask.selectedSegmentIndex == 0) {
-        self.taskPriority = High;
+        self.tskPriority = High;
     } else if (self.priorityTask.selectedSegmentIndex == 1) {
-        self.taskPriority = Normal;
+        self.tskPriority = Normal;
     } else {
-        self.taskPriority = Low;
+        self.tskPriority = Low;
     }
 }
 
@@ -88,7 +87,7 @@ NSString *stringValue;
     
     [[self.tasks objectAtIndex:self.taskIndex] setCompleted:self.taskCompletion];
     
-    [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.taskPriority];
+    [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.tskPriority];
     self.delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];    
