@@ -19,9 +19,9 @@
 @property (nonatomic) BOOL completed;
 
 typedef enum priority {
-Low, // == 0 (by default)
+High, // == 0 (by default)
 Normal, // == 1
-High // == 2
+Low // == 2
 } priority;
 @property (nonatomic) priority taskPriority;
 

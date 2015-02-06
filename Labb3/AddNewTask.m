@@ -35,12 +35,16 @@
     [super viewDidLoad];
     self.completedTask.selectedSegmentIndex = 1;
     self.priorityTask.selectedSegmentIndex = 1;
+    self.prio = Normal;
+    self.delegate = [UIApplication sharedApplication].delegate;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (IBAction)completedTaskSegmentedControlPressed:(id)sender {
     if (self.completedTask.selectedSegmentIndex == 0) {
@@ -49,6 +53,7 @@
         self.taskCompletion = NO;
     }
 }
+
 
 - (IBAction)priorityTaskSegmentedControlPressed:(id)sender {
     if (self.priorityTask.selectedSegmentIndex == 0) {
@@ -60,13 +65,20 @@
     }
 }
 
+
 - (IBAction)saveNewButtonPressed:(id)sender {
     self.task = [[Task alloc] initWithTitle:self.titleTask.text andDate:self.dateTask.text];
     self.task.taskComments = self.commentsTask.text;
     self.task.completed = self.taskCompletion;
     self.task.taskPriority = self.prio;
     [self.tasks addObject:self.task];
+    self.delegate.tasks = self.tasks;
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)cancelButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

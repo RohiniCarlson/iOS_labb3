@@ -23,14 +23,17 @@
     return self;
 }
 
+
 -(NSString*)description {
     return [NSString stringWithFormat:@"%@  -  %@",self.taskDate,self.taskTitle];
 }
+
 
 -(NSString*)convertToStringBool:(BOOL)completedStatus {
     
     return completedStatus ? @"Yes" : @"No";
 }
+
 
 -(NSString*)convertToStringEnum:(priority)whichPriority {
     
@@ -52,16 +55,15 @@
     return result;
 }
 
+
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.taskTitle forKey:@"title"];
     [encoder encodeObject:self.taskDate forKey:@"taskdate"];
     [encoder encodeObject:self.taskComments forKey:@"comments"];
     [encoder encodeBool:self.completed forKey:@"completed"];
     [encoder encodeInteger:self.taskPriority forKey:@"priority"];
-    
-    // encodeInteger(priority.toRaw(), forKey: "priority")
-    // priority = Priority.fromRaw(aDecoder.decodeIntegerForKey("priority"))
 }
+
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {

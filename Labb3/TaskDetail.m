@@ -54,9 +54,10 @@ NSString *stringValue;
     } else {
         [self.priorityTask setSelectedSegmentIndex:2];
     }
-   /* self.taskCompleted.text = [self.task convertToStringBool:([self.task completed])];
-    self.priorityLevel.text = [self.task convertToStringEnum:([self.task taskPriority])];*/
+    self.delegate = [UIApplication sharedApplication].delegate;
 }
+
+
 - (IBAction)onTaskCompletionChanged:(id)sender {
     if (self.completedTask.selectedSegmentIndex == 0) {
         self.taskCompletion = YES;
@@ -76,6 +77,7 @@ NSString *stringValue;
     }
 }
 
+
 - (IBAction)saveChangesButtonPressed:(id)sender {
     
     [[self.tasks objectAtIndex:self.taskIndex] setTaskDate:self.dateTask.text];
@@ -87,9 +89,17 @@ NSString *stringValue;
     [[self.tasks objectAtIndex:self.taskIndex] setCompleted:self.taskCompletion];
     
     [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.taskPriority];
+    self.delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];    
 }
+
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

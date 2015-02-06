@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface TaskDetail : UIViewController
 
@@ -14,5 +15,7 @@
 
 @property (nonatomic) NSMutableArray*
 tasks;
+
+@property (nonatomic) AppDelegate *delegate;
 
 @end
