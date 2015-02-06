@@ -10,4 +10,6 @@
 
 @interface TaskTable : UITableViewController
 
+@property (nonatomic) NSMutableArray *tasks;
+
 @end

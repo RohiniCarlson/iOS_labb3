@@ -12,6 +12,11 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic) NSUserDefaults *defaults;
+
+@property (nonatomic) NSData *data;
+
+@property (nonatomic) NSMutableArray *tasks;
 
 @end
 

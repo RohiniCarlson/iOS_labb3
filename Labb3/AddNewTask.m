@@ -68,20 +68,6 @@
     [self.tasks addObject:self.task];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    /*
-    
-    [[self.tasks objectAtIndex:self.taskIndex] setTaskComments:self.commentsTask.text];
-    
-    [[self.tasks objectAtIndex:self.taskIndex] setCompleted:self.taskCompletion];
-    
-    [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.taskPriority];
-    
-    self.task = [[Task alloc] init];
-    
-    [self.animals addObject:self.addAnimalName.text];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];*/
 }
 
 

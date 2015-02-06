@@ -10,29 +10,38 @@
 #import "Task.h"
 #import "TaskDetail.h"
 #import "AddNewTask.h"
+#import "AppDelegate.h"
 
 @interface TaskTable ()
 
-@property (nonatomic) NSMutableArray *tasks;
+@property (nonatomic) AppDelegate *delegate;
 
 @end
 
 @implementation TaskTable
 
-- (NSMutableArray*)tasks {
+/*- (NSMutableArray*)tasks {
     if (!_tasks) {
         _tasks = [@[[[Task alloc]initWithTitle:@"Dentist appointment" andDate:@"02-02-2015"],[[Task alloc]initWithTitle:@"Meeting" andDate:@"02-03-2015"],[[Task alloc]initWithTitle:@"Buy groceries" andDate:@"02-04-2015"]]mutableCopy];
     }
     return _tasks;
-}
+}*/
+/*-(NSMutableArray*)tasks {
+    if (!_tasks) {
+        _tasks = [[NSMutableArray alloc] init];
+    }
+    return _tasks;
+}*/
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.delegate.tasks = self.tasks;
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.delegate = [UIApplication sharedApplication].delegate;
+    self.tasks = self.delegate.tasks;
     [self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

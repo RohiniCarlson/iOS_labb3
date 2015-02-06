@@ -10,12 +10,10 @@
 
 @implementation Task
 
-int _id = 0;
 
 -(instancetype)initWithTitle:(NSString*)taskTitle andDate:(NSString*) taskDate {
     self = [super init];
     if (self) {
-        self.taskId = _id++;
         self.taskTitle = taskTitle;
         self.taskDate = taskDate;
         self.taskComments = @"";
@@ -52,6 +50,28 @@ int _id = 0;
             result = @"Unknown";
     }
     return result;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.taskTitle forKey:@"title"];
+    [encoder encodeObject:self.taskDate forKey:@"taskdate"];
+    [encoder encodeObject:self.taskComments forKey:@"comments"];
+    [encoder encodeBool:self.completed forKey:@"completed"];
+    [encoder encodeInteger:self.taskPriority forKey:@"priority"];
+    
+    // encodeInteger(priority.toRaw(), forKey: "priority")
+    // priority = Priority.fromRaw(aDecoder.decodeIntegerForKey("priority"))
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.taskTitle = [decoder decodeObjectForKey:@"title"];
+        self.taskDate = [decoder decodeObjectForKey:@"taskdate"];
+        self.taskComments = [decoder decodeObjectForKey:@"comments"];
+        self.completed = [decoder decodeBoolForKey:@"completed"];
+        self.taskPriority = [decoder decodeIntegerForKey:@"priority"];
+    }
+    return self;
 }
 
 @end

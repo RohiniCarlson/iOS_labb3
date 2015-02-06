@@ -11,6 +11,7 @@
 @interface TaskDetail : UIViewController
 
 @property (nonatomic) NSInteger taskIndex;
+
 @property (nonatomic) NSMutableArray*
 tasks;
 

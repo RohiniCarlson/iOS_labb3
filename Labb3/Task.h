@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Task : NSObject
+@interface Task : NSObject<NSCoding>
 
-@property (nonatomic) int taskId;
 @property (nonatomic) NSString *taskTitle;
+
 @property (nonatomic) NSString *taskDate;
+
 @property (nonatomic) NSString *taskComments;
+
 @property (nonatomic) BOOL completed;
+
 typedef enum priority {
 Low, // == 0 (by default)
 Normal, // == 1
@@ -23,7 +26,13 @@ High // == 2
 @property (nonatomic) priority taskPriority;
 
 -(instancetype)initWithTitle:(NSString*)name andDate:(NSString*)date;
+
 -(NSString*)convertToStringBool:(BOOL) completedStatus;
+
 -(NSString*)convertToStringEnum:(priority)whichPriority;
+
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+- (id)initWithCoder:(NSCoder *)decoder;
 
 @end
