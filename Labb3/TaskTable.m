@@ -22,7 +22,7 @@
 
 -(NSMutableArray*)tasks {
     if (!_tasks) {
- self.delegate = [UIApplication sharedApplication].delegate;
+  self.delegate = [UIApplication sharedApplication].delegate;
         _tasks = self.delegate.tasks;
     }
     return _tasks;
@@ -82,6 +82,7 @@
             }
         }
     
+    
     return cell;
 }
 
@@ -132,9 +133,11 @@
         cellIndex =                     indexPath.row;
         detailView.taskIndex = cellIndex;
         detailView.tasks = self.tasks;
+        detailView.delegate = self.delegate;
     } else if ([segue.identifier isEqualToString:@"Add"]){
-        AddNewTask *addview = [segue destinationViewController];
-        addview.tasks = self.tasks;
+        AddNewTask *addView = [segue destinationViewController];
+        addView.tasks = self.tasks;
+        addView.delegate = self.delegate;
     } else {
         NSLog(@"You forgot the segue %@",segue);
     }

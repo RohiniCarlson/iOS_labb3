@@ -71,6 +71,7 @@
     self.task.completed = self.taskCompletion;
     self.task.taskPriority = self.prio;
     [self.tasks addObject:self.task];
+    
     self.delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];
