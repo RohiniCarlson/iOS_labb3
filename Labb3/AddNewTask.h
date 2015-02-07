@@ -14,6 +14,4 @@
 @property (nonatomic) NSMutableArray*
 tasks;
 
-@property (nonatomic) AppDelegate *delegate;
-
 @end

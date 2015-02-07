@@ -11,6 +11,8 @@
 
 @interface TaskDetail ()
 
+@property (nonatomic) AppDelegate *delegate;
+
 @property (weak, nonatomic) IBOutlet UITextField *dateTask;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTask;

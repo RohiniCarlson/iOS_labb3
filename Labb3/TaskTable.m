@@ -133,11 +133,11 @@
         cellIndex =                     indexPath.row;
         detailView.taskIndex = cellIndex;
         detailView.tasks = self.tasks;
-        detailView.delegate = self.delegate;
+        //detailView.delegate = self.delegate;
     } else if ([segue.identifier isEqualToString:@"Add"]){
         AddNewTask *addView = [segue destinationViewController];
         addView.tasks = self.tasks;
-        addView.delegate = self.delegate;
+        //addView.delegate = self.delegate;
     } else {
         NSLog(@"You forgot the segue %@",segue);
     }
