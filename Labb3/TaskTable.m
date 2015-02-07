@@ -14,22 +14,21 @@
 
 @interface TaskTable ()
 
-@property (nonatomic) AppDelegate *delegate;
-
 @end
 
 @implementation TaskTable
 
 -(NSMutableArray*)tasks {
     if (!_tasks) {
-  self.delegate = [UIApplication sharedApplication].delegate;
-        _tasks = self.delegate.tasks;
+       _tasks = [[NSMutableArray alloc]init];
     }
     return _tasks;
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    self.tasks = [delegate tasks];
     [self.tableView reloadData];
 }
 
@@ -81,8 +80,6 @@
                 cell.imageView.image = [UIImage imageNamed:@"todo"];
             }
         }
-    
-    
     return cell;
 }
 
@@ -99,7 +96,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.tasks removeObjectAtIndex:indexPath.row];
-        self.delegate.tasks = self.tasks;
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        delegate.tasks = self.tasks;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } /*else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -133,11 +131,9 @@
         cellIndex =                     indexPath.row;
         detailView.taskIndex = cellIndex;
         detailView.tasks = self.tasks;
-        //detailView.delegate = self.delegate;
     } else if ([segue.identifier isEqualToString:@"Add"]){
         AddNewTask *addView = [segue destinationViewController];
         addView.tasks = self.tasks;
-        //addView.delegate = self.delegate;
     } else {
         NSLog(@"You forgot the segue %@",segue);
     }

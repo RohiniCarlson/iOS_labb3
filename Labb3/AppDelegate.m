@@ -23,11 +23,11 @@
 }
 
 -(void) loadFromUserDefaults {
-    self.defaults = [NSUserDefaults standardUserDefaults];
-    self.data = [self.defaults objectForKey:@"savedArray"];
-    if (self.data != nil)
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     NSData *data = [defaults objectForKey:@"savedArray"];
+    if (data != nil)
     {
-        NSArray *oldSavedArray = [NSKeyedUnarchiver unarchiveObjectWithData:self.data];
+        NSArray *oldSavedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         if (oldSavedArray != nil) {
             self.tasks = [[NSMutableArray alloc] initWithArray:oldSavedArray];
             NSLog(@"array initialised from saved data");
@@ -41,12 +41,11 @@
 }
 
 -(void) saveToUserDefaults {
-    self.defaults = [NSUserDefaults standardUserDefaults];
-    self.data = [NSKeyedArchiver archivedDataWithRootObject:self.tasks];
-    [self.defaults setObject:self.data forKey:@"savedArray"];
-    [self.defaults synchronize];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.tasks];
+    [defaults setObject:data forKey:@"savedArray"];
+    [defaults synchronize];
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

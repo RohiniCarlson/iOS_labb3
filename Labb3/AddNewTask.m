@@ -8,10 +8,9 @@
 
 #import "AddNewTask.h"
 #import "Task.h"
+#import "AppDelegate.h"
 
 @interface AddNewTask ()
-
-@property (nonatomic) AppDelegate *delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *dateTask;
 
@@ -74,7 +73,9 @@
     self.task.taskPriority = self.prio;
     [self.tasks addObject:self.task];
     
-    self.delegate.tasks = self.tasks;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    
+    delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
