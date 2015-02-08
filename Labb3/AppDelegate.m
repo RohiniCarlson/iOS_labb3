@@ -44,6 +44,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.tasks];
     [defaults setObject:data forKey:@"savedArray"];
+    NSLog(@"array saved to NSUserDefaults");
     [defaults synchronize];
 }
 

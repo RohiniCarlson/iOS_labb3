@@ -8,7 +8,6 @@
 
 #import "TaskDetail.h"
 #import "Task.h"
-#import "AppDelegate.h"
 
 @interface TaskDetail ()
 
@@ -89,10 +88,6 @@ NSString *stringValue;
     [[self.tasks objectAtIndex:self.taskIndex] setCompleted:self.taskCompletion];
     
     [[self.tasks objectAtIndex:self.taskIndex] setTaskPriority:self.tskPriority];
-    
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
-    delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];    
 }

@@ -8,7 +8,6 @@
 
 #import "AddNewTask.h"
 #import "Task.h"
-#import "AppDelegate.h"
 
 @interface AddNewTask ()
 
@@ -72,10 +71,6 @@
     self.task.completed = self.taskCompletion;
     self.task.taskPriority = self.prio;
     [self.tasks addObject:self.task];
-    
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    
-    delegate.tasks = self.tasks;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
